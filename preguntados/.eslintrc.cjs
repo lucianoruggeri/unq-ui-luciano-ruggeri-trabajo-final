@@ -13,7 +13,7 @@ module.exports = {
   },
   plugins: ["react", "prettier"],
   rules: {
-    "prettier/prettier": "error",
+   ["error", { singleQuote: false }],
   },
   settings: {
     react: {
