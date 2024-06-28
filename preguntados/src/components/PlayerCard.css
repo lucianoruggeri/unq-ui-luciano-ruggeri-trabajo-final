@@ -1,0 +1,31 @@
+.player-card {
+  background: #52c7db;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 150px;
+}
+
+.player-icon {
+  margin-bottom: 10px;
+  color: white;
+}
+
+.player-info label {
+  margin-top: 10px;
+  font-size: 16px;
+  color: white;
+}
+
+.player-info input {
+  margin-top: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+  text-align: center;
+}

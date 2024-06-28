@@ -1,0 +1,62 @@
+/* Game.css */
+.game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: inherit;
+  background-color: #ffc233;
+  border-radius: inherit;
+  min-width: 100%;
+  min-height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.game-info {
+  min-width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.question-container {
+  min-width: 100%;
+  text-align: center;
+}
+
+.options-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.options-container button {
+  padding: 10px 20px;
+  margin-bottom: 10px;
+
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.options-container button:hover {
+  background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+  .game-container {
+    width: 90%;
+  }
+
+  .options-container button {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+}
