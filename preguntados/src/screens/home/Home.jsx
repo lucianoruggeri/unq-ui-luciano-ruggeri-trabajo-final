@@ -8,7 +8,7 @@ const Home = () => {
   const navigate = useNavigate();
 
   const startGame = () => {
-    navigate("/players");
+    navigate("/settings");
   };
 
   return (
