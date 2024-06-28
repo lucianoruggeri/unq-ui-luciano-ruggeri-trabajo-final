@@ -1,0 +1,78 @@
+/* Settings.css */
+.settings-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.players-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.buttons-container {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.buttons-container button {
+  padding: 10px 20px;
+  margin: 0 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #28a745;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.buttons-container button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.buttons-container span {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.next-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.next-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.next-button:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+
+.difficulty-options {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.difficulty-options label {
+  margin: 10px;
+  font-size: 18px;
+}
+
+.difficulty-options input {
+  margin-left: 10px;
+}

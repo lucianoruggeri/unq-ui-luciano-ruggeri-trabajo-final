@@ -4,11 +4,10 @@ import "./App.css";
 import Home from "./screens/home/Home";
 import Game from "./screens/game/Game";
 import Winner from "./screens/winner/Winner";
+import Settings from "./screens/settings/Settings";
 
 function App() {
-  const [jugadores, setJugadores] = useState(1); // 1 o 2 jugadores
-  const [nivelDificultad, setNivelDificultad] = useState("facil"); // 'facil', 'medio', 'dificil'
-  const [preguntas, setPreguntas] = useState([]);
+  const [settings, setSettings] = useState([]);
 
   return (
     <div className="app">
@@ -17,7 +16,14 @@ function App() {
           <Router>
             <Routes>
               <Route path="/" element={<Home />}></Route>
-              <Route path="/play" element={<Game />}></Route>
+              <Route
+                path="/settings"
+                element={<Settings setSettings={setSettings} />}
+              ></Route>
+              <Route
+                path="/play"
+                element={<Game settings={settings} />}
+              ></Route>
               <Route path="/winner" element={<Winner />}></Route>
             </Routes>
           </Router>
