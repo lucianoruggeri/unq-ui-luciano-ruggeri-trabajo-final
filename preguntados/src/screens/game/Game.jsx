@@ -9,10 +9,11 @@ const Game = ({ settings }) => {
   const [questions, setQuestions] = useState([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [currentPlayerIndex, setCurrentPlayerIndex] = useState(0);
-  const [timeLeft, setTimeLeft] =
-    useState(300000000000000000000000000000000000000); // 30 segundos por pregunta
+  const [timeLeft, setTimeLeft] = useState(5); // 30 segundos por pregunta
   const [isLoading, setIsLoading] = useState(true);
-  const [correctAnswers, setCorrectAnswers] = useState([]);
+  const [correctAnswers, setCorrectAnswers] = useState(
+    Array(settings.players.length).fill(0),
+  );
 
   const { players, difficulty } = settings;
 
@@ -29,17 +30,19 @@ const Game = ({ settings }) => {
   }, []);
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setTimeLeft((prevTime) => {
-        if (prevTime === 1) {
-          handleNextTurn();
-          return 30;
-        }
-        return prevTime - 1;
-      });
-    }, 1000);
-    return () => clearInterval(timer);
-  }, [currentQuestionIndex, currentPlayerIndex]);
+    if (timeLeft === 0) {
+      //  setTimeUp(true);
+      //setSelectedOption("timeUp");
+      setTimeout(() => {
+        handleNextTurn();
+      }, 1000); // Espera 1 segundo antes de pasar al siguiente turno
+    } else {
+      const timer = setInterval(() => {
+        setTimeLeft((prevTime) => prevTime - 1);
+      }, 1000);
+      return () => clearInterval(timer);
+    }
+  }, [timeLeft]);
 
   const currentQuestion = questions[currentQuestionIndex];
   const currentPlayer = players[currentPlayerIndex].name;
@@ -49,7 +52,7 @@ const Game = ({ settings }) => {
     if (currentQuestionIndex < questions.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
       setCurrentPlayerIndex((currentPlayerIndex + 1) % players.length);
-      setTimeLeft(30);
+      setTimeLeft(5);
     } else {
       navigate("/winner", { state: { correctAnswers, players } });
     }
