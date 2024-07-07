@@ -14,6 +14,10 @@ const Game = ({ settings }) => {
   const [correctAnswers, setCorrectAnswers] = useState(
     Array(settings.players.length).fill(0),
   );
+  const [selectedOption, setSelectedOption] = useState(null);
+  const [isCorrect, setIsCorrect] = useState(null);
+  const [timeUp, setTimeUp] = useState(false);
+  const [timerActive, setTimerActive] = useState(true);
 
   const { players, difficulty } = settings;
 
@@ -30,19 +34,19 @@ const Game = ({ settings }) => {
   }, []);
 
   useEffect(() => {
-    if (timeLeft === 0) {
-      //  setTimeUp(true);
-      //setSelectedOption("timeUp");
-      setTimeout(() => {
-        handleNextTurn();
-      }, 1000); // Espera 1 segundo antes de pasar al siguiente turno
-    } else {
+    if (timerActive && timeLeft > 0) {
       const timer = setInterval(() => {
         setTimeLeft((prevTime) => prevTime - 1);
       }, 1000);
       return () => clearInterval(timer);
+    } else if (timeLeft === 0) {
+      setTimeUp(true);
+      setSelectedOption("timeUp");
+      setTimeout(() => {
+        handleNextTurn();
+      }, 1000); // Espera 1 segundo antes de pasar al siguiente turno
     }
-  }, [timeLeft]);
+  }, [timerActive, timeLeft]);
 
   const currentQuestion = questions[currentQuestionIndex];
   const currentPlayer = players[currentPlayerIndex].name;
@@ -53,12 +57,18 @@ const Game = ({ settings }) => {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
       setCurrentPlayerIndex((currentPlayerIndex + 1) % players.length);
       setTimeLeft(5);
+      setSelectedOption(null);
+      setIsCorrect(null);
+      setTimeUp(false);
+      setTimerActive(true);
     } else {
       navigate("/winner", { state: { correctAnswers, players } });
     }
   };
 
   const handleAnswer = (answer) => {
+    if (timeUp) return;
+    setTimerActive(false);
     axios
       .post(`https://preguntados-api.vercel.app/api/answer`, {
         questionId: currentQuestion.id,
@@ -66,6 +76,8 @@ const Game = ({ settings }) => {
       })
       .then((response) => {
         const isCorrect = response.data.answer;
+        setIsCorrect(isCorrect);
+        setSelectedOption(answer);
         if (isCorrect) {
           setCorrectAnswers((prevCorrectAnswers) => {
             const newCorrectAnswers = [...prevCorrectAnswers];
@@ -73,7 +85,9 @@ const Game = ({ settings }) => {
             return newCorrectAnswers;
           });
         }
-        handleNextTurn();
+        setTimeout(() => {
+          handleNextTurn();
+        }, 1000);
       })
       .catch((error) => console.error(error));
   };
@@ -97,7 +111,18 @@ const Game = ({ settings }) => {
           {Object.keys(currentQuestion)
             .filter((key) => key.startsWith("option"))
             .map((key, index) => (
-              <button key={index} onClick={() => handleAnswer(key)}>
+              <button
+                key={index}
+                onClick={() => handleAnswer(key)}
+                className={
+                  timeUp || (selectedOption === key && isCorrect === false)
+                    ? "incorrect-option"
+                    : selectedOption === key && isCorrect === true
+                      ? "correct-option"
+                      : ""
+                }
+                disabled={selectedOption !== null || timeUp}
+              >
                 {currentQuestion[key]}
               </button>
             ))}

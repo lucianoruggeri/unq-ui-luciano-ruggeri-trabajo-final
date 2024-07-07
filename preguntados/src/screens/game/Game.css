@@ -50,6 +50,18 @@
   background-color: #0056b3;
 }
 
+.options-container button:disabled {
+  cursor: not-allowed;
+}
+
+.options-container button.correct-option {
+  background-color: green !important;
+}
+
+.options-container button.incorrect-option {
+  background-color: red !important;
+}
+
 @media (max-width: 768px) {
   .game-container {
     width: 90%;

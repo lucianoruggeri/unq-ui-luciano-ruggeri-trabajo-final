@@ -15,7 +15,10 @@ const WinnerComponent = () => {
   return (
     <div>
       <h1>Ganador: {winner}</h1>
-      <p>Respuestas Correctas: {correctAnswers[0]}</p>
+      <p>
+        Respuestas Correctas:{" "}
+        {correctAnswers.length === 0 ? 0 : correctAnswers[0]}
+      </p>
       <button onClick={resetGame}>PLAY AGAIN!</button>
     </div>
   );
