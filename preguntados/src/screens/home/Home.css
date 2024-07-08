@@ -1,0 +1,50 @@
+/* Home.css */
+.home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.home-logo {
+  max-height: 80%;
+  max-width: 80%;
+  height: auto;
+  width: auto;
+}
+
+.play-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 30px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 10px;
+  background-color: #90d237; /* Color verde */
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 8px #80c628; /* Relieve */
+  transition: all 0.2s ease;
+  position: relative;
+  font-family: "MyCustomFont";
+}
+
+.play-button:hover {
+  background-color: #218838; /* Color verde más oscuro */
+  box-shadow: 0 4px #1c7430; /* Relieve */
+  transform: translateY(+2px);
+}
+
+.play-button:active {
+  background-color: #1e7e34; /* Color verde más oscuro aún */
+  box-shadow: 0 2px #1c7430; /* Relieve */
+  transform: translateY(2px);
+}
+
+.play-icon {
+  margin-right: 10px;
+}

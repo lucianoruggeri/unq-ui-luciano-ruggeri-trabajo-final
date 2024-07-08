@@ -1,0 +1,41 @@
+.player-card {
+  background: #61cbd6;
+  box-shadow: 0px 15px #4bbdbf;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 150px;
+}
+
+.second-card {
+  background: #f03a3e;
+  box-shadow: 0px 15px #dd2b33;
+}
+
+.player-icon {
+  margin-bottom: 10px;
+  color: white;
+}
+
+.player-info label {
+  margin-top: 10px;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  font-family: "MyCustomFont";
+}
+
+.player-info input {
+  margin-top: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+  text-align: center;
+  font-weight: bold;
+  max-width: 150px;
+  font-family: "MyCustomFont";
+}

@@ -1,0 +1,109 @@
+/* Settings.css */
+.settings-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  font-family: "MyCustomFont";
+}
+
+.players-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.buttons-container {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  font-family: "MyCustomFont";
+}
+
+.buttons-container button {
+  padding: 10px 20px;
+  margin: 10px 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  box-shadow: 0 8px #035ec0;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-family: "MyCustomFont";
+}
+
+.buttons-container button:disabled {
+  background-color: #ccc;
+  box-shadow: 0 8px#b3b2b2;
+  cursor: not-allowed;
+}
+
+.buttons-container button:hover:not(:disabled) {
+  background-color: #49b3ff;
+}
+
+.buttons-container span {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+button.next-button {
+  padding: 15px 30px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 10px;
+  background-color: #28a745; /* Color verde */
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 10px #1c7430; /* Relieve */
+  transition: all 0.2s ease;
+  width: 200px;
+  font-family: "MyCustomFont";
+}
+
+.next-button:disabled {
+  background-color: #ccc;
+  box-shadow: 0 10px#b3b2b2;
+  cursor: not-allowed;
+}
+
+button.next-button:hover:not(:disabled) {
+  background-color: #1fb408b6;
+}
+
+.difficulty-options {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.label-button {
+  background-color: #fab82c;
+  box-shadow: 0 8px #f8a11d;
+  border-radius: 10px;
+  padding: 10px 20px;
+  margin: 10px 0;
+  width: 150px;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  border: none;
+  border-radius: 5px;
+  font-family: "MyCustomFont";
+}
+
+.label-button:hover {
+  transform: translateY(-2px);
+}
+
+.label-button.selected {
+  background: #f38e00; /* Color del botón cuando está seleccionado */
+  transform: scale(1.3); /* Agrandar el botón */
+}

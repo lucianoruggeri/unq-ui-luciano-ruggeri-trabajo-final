@@ -1,0 +1,107 @@
+/* Game.css */
+.game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: inherit;
+  background-color: #ffffff;
+  border-radius: inherit;
+  min-width: 100%;
+  min-height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.game-info {
+  min-width: 100%;
+  min-height: 10%;
+  max-height: 10%;
+  margin-top: 10px;
+  margin-bottom: 5%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.info-game {
+  padding: 0px 10px;
+  min-width: 160px;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  background: #61cbd6;
+  box-shadow: 0px 10px #4bbdbf;
+  font-family: "MyCustomFont";
+  font-size: 12px;
+}
+.second-player {
+  background: #f03a3e;
+  box-shadow: 0px 10px #dd2b33;
+}
+
+.time-info {
+  min-width: 100px;
+  padding: 0px 10px;
+  border: none;
+  border-radius: 10px;
+  background-color: #fab82c;
+  box-shadow: 0 10px #f8a11d;
+  color: white;
+  font-family: "MyCustomFont";
+  font-size: 14px;
+}
+
+.question-container {
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 78%;
+  max-height: 78%;
+  text-align: center;
+  background-color: #fed400;
+  box-shadow: 0 10px#eecb1d; /* Relieve */
+  border: none;
+  border-radius: 10px;
+  font-family: "MyCustomFont";
+  font-size: 14px;
+}
+
+.options-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.options-container button {
+  padding: 10px 20px;
+  margin-bottom: 22px;
+  min-width: 400px;
+  min-height: 35px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  box-shadow: 0 8px #185eaf;
+  color: white;
+  cursor: pointer;
+  font-family: "MyCustomFont";
+  font-size: 12px;
+}
+
+.options-container button:hover {
+  background-color: #0056b3;
+}
+
+.options-container button:disabled {
+  cursor: not-allowed;
+}
+
+.options-container button.correct-option {
+  background-color: green !important;
+  box-shadow: 0 8px rgb(0, 150, 0) !important;
+}
+
+.options-container button.incorrect-option {
+  background-color: red !important;
+  box-shadow: 0 8px rgb(216, 1, 1) !important;
+}
