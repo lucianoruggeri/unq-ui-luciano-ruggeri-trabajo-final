@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import "./Winner.css";
 
 const WinnerComponent = () => {
   const location = useLocation();
@@ -53,19 +54,23 @@ const WinnerComponent = () => {
   return (
     <div className="container">
       <div className="header">
-        {winner ? <h1>{winner}</h1> : <h1>It's a draw</h1>}
+        {winner ? <h1>Congratulations</h1> : <h1>It's a tie</h1>}
       </div>
-      <div className="winners">
-        <ul>
-          {playersWithScores.map((player, index) => (
-            <li key={index}>
-              {player.name}: {player.correctAnswers} correct answers
-            </li>
-          ))}
-        </ul>
+      <div className={`results ${winner ? "" : "tie"}`}>
+        {playersWithScores.map((player, index) => (
+          <div
+            className={`winner ${player.name == players[0].name ? "one" : "two"}`}
+            key={index}
+          >
+            <div>{player.name.toUpperCase()}</div>
+            <div>{player.correctAnswers} correct answers</div>
+          </div>
+        ))}
       </div>
       <div className="buttons">
-        <button onClick={resetGame}>PLAY AGAIN!</button>
+        <button className="play-button" onClick={resetGame}>
+          PLAY AGAIN!
+        </button>
       </div>
     </div>
   );
