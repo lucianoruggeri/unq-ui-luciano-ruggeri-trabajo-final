@@ -24,7 +24,7 @@
   margin: 0 10px;
   border: none;
   border-radius: 5px;
-  background-color: #28a745;
+  background-color: #007bff;
   color: white;
   font-size: 16px;
   cursor: pointer;
@@ -41,25 +41,29 @@
   font-weight: bold;
 }
 
-.next-button {
-  margin-top: 20px;
-  padding: 10px 20px;
+button.next-button {
+  padding: 15px 30px;
+  margin-bottom: 20px;
   border: none;
-  border-radius: 5px;
-  background-color: #007bff;
+  border-radius: 10px;
+  background-color: #28a745; /* Color verde */
   color: white;
-  font-size: 16px;
+  font-size: 18px;
+  font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  box-shadow: 0 10px #1c7430; /* Relieve */
+  transition: all 0.2s ease;
+  width: 200px;
 }
 
 .next-button:disabled {
   background-color: #ccc;
+  box-shadow: 0 10px#b3b2b2;
   cursor: not-allowed;
 }
 
 .next-button:hover:not(:disabled) {
-  background-color: #0056b3;
+  background-color: #1fb408b6;
 }
 
 .difficulty-options {
@@ -68,11 +72,27 @@
   align-items: center;
 }
 
-.difficulty-options label {
-  margin: 10px;
-  font-size: 18px;
+.label-button {
+  background: #f9a825; /* Color de fondo del botón */
+  border-radius: 10px;
+  padding: 10px 20px;
+  margin: 10px 0;
+  width: 150px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  border: none;
+  border-radius: 5px;
 }
 
-.difficulty-options input {
-  margin-left: 10px;
+.label-button:hover {
+  transform: translateY(-2px);
+}
+
+.label-button.selected {
+  background: #f38e00; /* Color del botón cuando está seleccionado */
+  transform: scale(1.3); /* Agrandar el botón */
 }

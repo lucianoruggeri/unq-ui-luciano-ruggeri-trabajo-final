@@ -3,9 +3,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   padding: inherit;
-  background-color: #ffc233;
+  background-color: #ffffff;
   border-radius: inherit;
   min-width: 100%;
   min-height: 100%;
@@ -15,33 +14,79 @@
 
 .game-info {
   min-width: 100%;
+  min-height: 10%;
+  max-height: 10%;
+  margin-top: 10px;
+  margin-bottom: 5%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
 
+.player-info {
+  padding: 0px 10px;
+  min-width: 100px;
+  border: none;
+  border-radius: 10px;
+  background-color: #0dd7da; /* Color verde */
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  box-shadow: 0 10px #08b5b8; /* Relieve */
+}
+.time-info {
+  min-width: 100px;
+  padding: 0px 10px;
+  border: none;
+  border-radius: 10px;
+  background-color: #e5810f; /* Color verde */
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  box-shadow: 0 10px #b86c08; /* Relieve */
+}
+.questions-info {
+  padding: 0px 10px;
+  min-width: 100px;
+  border: none;
+  border-radius: 10px;
+  background-color: #0dd7da; /* Color verde */
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  box-shadow: 0 10px #08b5b8; /* Relieve */
+}
+
 .question-container {
   min-width: 100%;
+  max-width: 100%;
+  min-height: 78%;
+  max-height: 78%;
   text-align: center;
+  background-color: #eecb1d;
+  box-shadow: 0 10px #995906; /* Relieve */
+  border: none;
+  border-radius: 10px;
 }
 
 .options-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 10px;
 }
 
 .options-container button {
   padding: 10px 20px;
-  margin-bottom: 10px;
-
+  margin-bottom: 15px;
+  min-width: 400px;
   border: none;
   border-radius: 5px;
   background-color: #007bff;
+  box-shadow: 0 5px #064b99;
   color: white;
   font-size: 16px;
+  font-weight: bold;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }

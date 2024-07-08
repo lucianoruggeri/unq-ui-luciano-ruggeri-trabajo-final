@@ -31,10 +31,9 @@ html {
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  width: 50vw;
-  height: 60vh;
-  max-width: 800px; /* Valor máximo para el ancho */
-  max-height: 600px; /* Valor máximo para el alto */
+  width: 60vw;
+  height: 80vh;
+
   display: flex;
   flex-direction: column;
   justify-content: center;

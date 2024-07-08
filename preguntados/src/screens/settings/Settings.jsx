@@ -56,16 +56,11 @@ const Settings = ({ setSettings }) => {
     setShowPlayersDetail(false);
     setShowDifficultyDetail(true);
   };
-  const moveToPlayerDetail = () => {
-    setShowDifficultyDetail(false);
-    setShowPlayersDetail(true);
-  };
 
   return (
     <>
       {showPlayersDetail && (
         <div className="settings-container">
-          <h1>Player Details</h1>
           <div className="players-list">
             {players.map((player, index) => (
               <PlayerCard
@@ -73,6 +68,7 @@ const Settings = ({ setSettings }) => {
                 index={index}
                 name={player.name}
                 setName={setPlayerName}
+                className={index === 1 ? "second-card" : ""}
               />
             ))}
           </div>
@@ -88,6 +84,7 @@ const Settings = ({ setSettings }) => {
             </button>
           </div>
           <button
+            style={{ marginTop: "10px" }}
             className="next-button"
             onClick={moveToDifficultyDetail}
             disabled={!isNextEnabled}
@@ -101,22 +98,24 @@ const Settings = ({ setSettings }) => {
           <h1>Choose a level:</h1>
           <div className="difficulty-options">
             {options.map((option, index) => (
-              <label key={index}>
+              <button
+                onClick={() => setDifficulty(option)}
+                className={`label-button ${
+                  difficulty === option ? "selected" : ""
+                }`}
+                key={index}
+              >
                 {option.toUpperCase()}
-                <input
-                  type="radio"
-                  name="difficulty"
-                  value={option}
-                  onChange={(e) => setDifficulty(e.target.value)}
-                  checked={difficulty === option}
-                />
-              </label>
+              </button>
             ))}
           </div>
           <div className="buttons-container">
-            <button onClick={moveToPlayerDetail}>Back</button>
-            <button onClick={playGame} disabled={!difficulty}>
-              Play
+            <button
+              className="next-button"
+              onClick={playGame}
+              disabled={!difficulty}
+            >
+              START !
             </button>
           </div>
         </div>
