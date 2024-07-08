@@ -5,6 +5,7 @@
   align-items: center;
   justify-content: center;
   padding: 20px;
+  font-family: "MyCustomFont";
 }
 
 .players-list {
@@ -17,23 +18,31 @@
   display: flex;
   align-items: center;
   margin-top: 20px;
+  font-family: "MyCustomFont";
 }
 
 .buttons-container button {
   padding: 10px 20px;
-  margin: 0 10px;
+  margin: 10px 10px;
   border: none;
   border-radius: 5px;
   background-color: #007bff;
+  box-shadow: 0 8px #035ec0;
   color: white;
-  font-size: 16px;
+  font-size: 14px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  font-family: "MyCustomFont";
 }
 
 .buttons-container button:disabled {
   background-color: #ccc;
+  box-shadow: 0 8px#b3b2b2;
   cursor: not-allowed;
+}
+
+.buttons-container button:hover:not(:disabled) {
+  background-color: #49b3ff;
 }
 
 .buttons-container span {
@@ -48,12 +57,13 @@ button.next-button {
   border-radius: 10px;
   background-color: #28a745; /* Color verde */
   color: white;
-  font-size: 18px;
+  font-size: 14px;
   font-weight: bold;
   cursor: pointer;
   box-shadow: 0 10px #1c7430; /* Relieve */
   transition: all 0.2s ease;
   width: 200px;
+  font-family: "MyCustomFont";
 }
 
 .next-button:disabled {
@@ -62,7 +72,7 @@ button.next-button {
   cursor: not-allowed;
 }
 
-.next-button:hover:not(:disabled) {
+button.next-button:hover:not(:disabled) {
   background-color: #1fb408b6;
 }
 
@@ -86,6 +96,7 @@ button.next-button {
   transition: all 0.3s ease;
   border: none;
   border-radius: 5px;
+  font-family: "MyCustomFont";
 }
 
 .label-button:hover {
