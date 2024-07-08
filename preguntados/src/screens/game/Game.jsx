@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Game.css";
-import axios from "axios";
+import api from "../../services/api/api";
 
 const Game = ({ settings }) => {
   const navigate = useNavigate();
@@ -18,14 +18,13 @@ const Game = ({ settings }) => {
   const [isCorrect, setIsCorrect] = useState(null);
   const [timeUp, setTimeUp] = useState(false);
   const [timerActive, setTimerActive] = useState(true);
+  const [isLastQuestionAnswered, setIsLastQuestionAnswered] = useState(false);
 
   const { players, difficulty } = settings;
 
   useEffect(() => {
-    axios
-      .get(
-        `https://preguntados-api.vercel.app/api/questions?difficulty=${difficulty}`,
-      )
+    api
+      .getQuestions(difficulty)
       .then((response) => {
         setQuestions(response.data);
         setIsLoading(false);
@@ -48,6 +47,12 @@ const Game = ({ settings }) => {
     }
   }, [timerActive, timeLeft]);
 
+  useEffect(() => {
+    if (isLastQuestionAnswered) {
+      navigate("/winner", { state: { correctAnswers, players } });
+    }
+  }, [isLastQuestionAnswered]);
+
   const currentQuestion = questions[currentQuestionIndex];
 
   const currentPlayer = players[currentPlayerIndex].name;
@@ -67,15 +72,15 @@ const Game = ({ settings }) => {
       setTimeUp(false);
       setTimerActive(true);
     } else {
-      navigate("/winner", { state: { correctAnswers, players } });
+      setIsLastQuestionAnswered(true);
     }
   };
 
   const handleAnswer = (answer) => {
     if (timeUp) return;
     setTimerActive(false);
-    axios
-      .post(`https://preguntados-api.vercel.app/api/answer`, {
+    api
+      .validateAnswer({
         questionId: currentQuestion.id,
         option: answer,
       })
