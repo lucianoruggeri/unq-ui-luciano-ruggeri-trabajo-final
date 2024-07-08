@@ -1,7 +1,6 @@
 import React from "react";
 import "./PlayerCard.css";
-import { FaRegUserCircle } from "react-icons/fa";
-import { BiUser } from "react-icons/bi";
+
 import { TbUserFilled } from "react-icons/tb";
 
 const PlayerCard = ({ index, name, setName }) => {
