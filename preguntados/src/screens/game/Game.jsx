@@ -49,7 +49,12 @@ const Game = ({ settings }) => {
   }, [timerActive, timeLeft]);
 
   const currentQuestion = questions[currentQuestionIndex];
+
   const currentPlayer = players[currentPlayerIndex].name;
+
+  const numberOfQuestion =
+    Math.floor(currentQuestionIndex / players.length) + 1;
+
   const totalQuestions = players[1] ? questions.length / 2 : questions.length;
 
   const handleNextTurn = () => {
@@ -102,7 +107,7 @@ const Game = ({ settings }) => {
         <h1>Player: {currentPlayer}</h1>
         <h1>Time Left: {timeLeft}s</h1>
         <h1>
-          {currentQuestionIndex + 1}/{totalQuestions}
+          {numberOfQuestion}/{totalQuestions}
         </h1>
       </div>
       <div className="question-container">
