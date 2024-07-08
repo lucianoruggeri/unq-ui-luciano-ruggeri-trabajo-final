@@ -9,7 +9,7 @@ const Game = ({ settings }) => {
   const [questions, setQuestions] = useState([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [currentPlayerIndex, setCurrentPlayerIndex] = useState(0);
-  const [timeLeft, setTimeLeft] = useState(300000000); // 30 segundos por pregunta
+  const [timeLeft, setTimeLeft] = useState(30); // 30 segundos por pregunta
   const [isLoading, setIsLoading] = useState(true);
   const [correctAnswers, setCorrectAnswers] = useState(
     Array(settings.players.length).fill(0),
@@ -70,7 +70,7 @@ const Game = ({ settings }) => {
     if (currentQuestionIndex < questions.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
       setCurrentPlayerIndex((currentPlayerIndex + 1) % players.length);
-      setTimeLeft(111111111111115);
+      setTimeLeft(30);
       setSelectedOption(null);
       setIsCorrect(null);
       setTimeUp(false);
@@ -111,15 +111,19 @@ const Game = ({ settings }) => {
   }
 
   return (
-    <div className="game-container">
+    <div className="game-container ">
       <div className="game-info">
-        <div className="player-info">
+        <div
+          className={`info-game ${currentPlayerIndex === 1 ? "second-player" : ""}`}
+        >
           <h1>{currentPlayer}</h1>
         </div>
         <div className="time-info">
           <h1>{timeLeft}s</h1>
         </div>
-        <div className="questions-info">
+        <div
+          className={`info-game ${currentPlayerIndex === 1 ? "second-player" : ""}`}
+        >
           <h1>
             {numberOfQuestion}/{totalQuestions}
           </h1>

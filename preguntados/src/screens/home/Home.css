@@ -23,12 +23,12 @@
   margin-bottom: 20px;
   border: none;
   border-radius: 10px;
-  background-color: #28a745; /* Color verde */
+  background-color: #90d237; /* Color verde */
   color: white;
   font-size: 18px;
   font-weight: bold;
   cursor: pointer;
-  box-shadow: 0 4px #1c7430; /* Relieve */
+  box-shadow: 0 8px #80c628; /* Relieve */
   transition: all 0.2s ease;
   position: relative;
 }
@@ -36,7 +36,7 @@
 .play-button:hover {
   background-color: #218838; /* Color verde más oscuro */
   box-shadow: 0 4px #1c7430; /* Relieve */
-  transform: translateY(-2px);
+  transform: translateY(+2px);
 }
 
 .play-button:active {

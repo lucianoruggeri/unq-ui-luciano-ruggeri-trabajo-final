@@ -10,7 +10,7 @@
 .players-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 
 .buttons-container {
@@ -73,12 +73,12 @@ button.next-button {
 }
 
 .label-button {
-  background: #f9a825; /* Color de fondo del botón */
+  background-color: #fab82c;
+  box-shadow: 0 8px #f8a11d;
   border-radius: 10px;
   padding: 10px 20px;
   margin: 10px 0;
   width: 150px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   color: white;
   font-weight: bold;

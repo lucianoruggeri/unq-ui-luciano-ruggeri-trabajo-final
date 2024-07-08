@@ -63,13 +63,15 @@ const Settings = ({ setSettings }) => {
         <div className="settings-container">
           <div className="players-list">
             {players.map((player, index) => (
-              <PlayerCard
-                key={index}
-                index={index}
-                name={player.name}
-                setName={setPlayerName}
-                className={index === 1 ? "second-card" : ""}
-              />
+              <div>
+                <PlayerCard
+                  key={index}
+                  index={index}
+                  name={player.name}
+                  setName={setPlayerName}
+                  className={index === 1 ? "second-card" : ""}
+                />
+              </div>
             ))}
           </div>
           <div className="buttons-container">
@@ -83,14 +85,16 @@ const Settings = ({ setSettings }) => {
               +
             </button>
           </div>
-          <button
-            style={{ marginTop: "10px" }}
-            className="next-button"
-            onClick={moveToDifficultyDetail}
-            disabled={!isNextEnabled}
-          >
-            Continue
-          </button>
+          <div>
+            <button
+              style={{ marginTop: "10px" }}
+              className="next-button"
+              onClick={moveToDifficultyDetail}
+              disabled={!isNextEnabled}
+            >
+              Continue
+            </button>
+          </div>
         </div>
       )}
       {showDifficultyDetail && (
