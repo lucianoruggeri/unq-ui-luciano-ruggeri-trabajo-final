@@ -9,7 +9,7 @@ const Game = ({ settings }) => {
   const [questions, setQuestions] = useState([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [currentPlayerIndex, setCurrentPlayerIndex] = useState(0);
-  const [timeLeft, setTimeLeft] = useState(5); // 30 segundos por pregunta
+  const [timeLeft, setTimeLeft] = useState(30); // 30 segundos por pregunta
   const [isLoading, setIsLoading] = useState(true);
   const [correctAnswers, setCorrectAnswers] = useState(
     Array(settings.players.length).fill(0),
@@ -23,13 +23,17 @@ const Game = ({ settings }) => {
   const { players, difficulty } = settings;
 
   useEffect(() => {
-    api
-      .getQuestions(difficulty)
-      .then((response) => {
+    const fetchData = async () => {
+      try {
+        const response = await api.getQuestions(difficulty);
         setQuestions(response.data);
         setIsLoading(false);
-      })
-      .catch((error) => console.error(error));
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchData();
   }, []);
 
   useEffect(() => {
