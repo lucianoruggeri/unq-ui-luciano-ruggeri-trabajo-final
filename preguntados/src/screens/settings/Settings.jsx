@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Settings.css";
-import PlayerCard from "../../components/PlayerCard";
+import PlayerCard from "../../components/playerCard/PlayerCard";
+import api from "../../services/api/api";
 
 const Settings = ({ setSettings }) => {
   const navigate = useNavigate();
@@ -12,6 +13,16 @@ const Settings = ({ setSettings }) => {
 
   const [players, setPlayers] = useState([{ name: "" }]);
   const [difficulty, setDifficulty] = useState("");
+  const [options, setOptions] = useState("");
+
+  useEffect(() => {
+    api
+      .getDifficulty()
+      .then((response) => {
+        setOptions(response.data);
+      })
+      .catch((error) => console.error(error));
+  }, []);
 
   useEffect(() => {
     const allNamesFilled = players.every((player) => player.name.trim() !== "");
@@ -81,49 +92,31 @@ const Settings = ({ setSettings }) => {
             onClick={moveToDifficultyDetail}
             disabled={!isNextEnabled}
           >
-            NEXT
+            Continue
           </button>
         </div>
       )}
       {showDifficultyDetail && (
         <div className="settings-container">
-          <h1>Seleccionar Dificultad del Juego</h1>
+          <h1>Choose a level:</h1>
           <div className="difficulty-options">
-            <label>
-              EASY
-              <input
-                type="radio"
-                name="difficulty"
-                value="easy"
-                onChange={(e) => setDifficulty(e.target.value)}
-                checked={difficulty === "easy"}
-              />
-            </label>
-            <label>
-              INTERMEDIATE
-              <input
-                type="radio"
-                name="difficulty"
-                value="intermediate"
-                onChange={(e) => setDifficulty(e.target.value)}
-                checked={difficulty === "intermediate"}
-              />
-            </label>
-            <label>
-              HARD
-              <input
-                type="radio"
-                name="difficulty"
-                value="hard"
-                onChange={(e) => setDifficulty(e.target.value)}
-                checked={difficulty === "hard"}
-              />
-            </label>
+            {options.map((option, index) => (
+              <label key={index}>
+                {option.toUpperCase()}
+                <input
+                  type="radio"
+                  name="difficulty"
+                  value={option}
+                  onChange={(e) => setDifficulty(e.target.value)}
+                  checked={difficulty === option}
+                />
+              </label>
+            ))}
           </div>
           <div className="buttons-container">
-            <button onClick={moveToPlayerDetail}>Atrás</button>
+            <button onClick={moveToPlayerDetail}>Back</button>
             <button onClick={playGame} disabled={!difficulty}>
-              Jugar
+              Play
             </button>
           </div>
         </div>
