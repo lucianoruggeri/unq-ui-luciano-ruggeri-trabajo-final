@@ -1,10 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const WinnerComponent = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const { correctAnswers, players } = location.state || {};
+
+  useEffect(() => {
+    // Prevent navigation back to the previous page
+    const handleBackButton = (event) => {
+      event.preventDefault();
+      navigate("/");
+    };
+
+    window.history.pushState(null, "", window.location.pathname);
+    window.addEventListener("popstate", handleBackButton);
+
+    return () => {
+      window.removeEventListener("popstate", handleBackButton);
+    };
+  }, [navigate]);
 
   let playersWithScores = players.map((player, index) => ({
     name: player.name,
