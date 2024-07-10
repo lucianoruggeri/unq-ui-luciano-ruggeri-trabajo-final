@@ -1,4 +1,6 @@
 # Quiz Game Application
+### You can try it now https://unq-ui-luciano-ruggeri-trabajo-final.vercel.app/
+![logo](https://github.com/lucianoruggeri/unq-ui-luciano-ruggeri-trabajo-final/assets/81997366/97066075-0ead-4806-a2a6-52c49b57f52d)
 
 
 ## Descripción
@@ -11,8 +13,8 @@ Esta es una aplicación de juego de preguntas y respuestas desarrollada en React
 
 ## Requisitos Previos
 Antes de empezar, asegúrate de tener instalado lo siguiente en tu máquina:
-- [Node.js](https://nodejs.org/en/) (versión recomendada: v18.16.1 o superior)
-- [npm](https://www.npmjs.com/get-npm)  (versión recomendada: v9.8.0 o superior) 
+- [Node.js](https://nodejs.org/en/) (versión recomendada: v20.13.1 o superior)
+- [npm](https://www.npmjs.com/get-npm)  (versión recomendada: v10.5.2 o superior) 
 - [Visual Studio Code](https://code.visualstudio.com/) (opcional pero recomendado para edición de código)
 
 ## Instalación
@@ -26,7 +28,7 @@ git clone https://github.com/lucianoruggeri/unq-ui-luciano-ruggeri-trabajo-final
 
 ### 2. Accede al directorio del proyecto recién clonado
 ```bash
-cd quiz
+cd unq-ui-luciano-ruggeri-trabajo-final
 ```
 ### 3. Instalar dependencias
 Instala las dependencias del proyecto utilizando npm.
