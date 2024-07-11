@@ -28,7 +28,7 @@ git clone https://github.com/lucianoruggeri/unq-ui-luciano-ruggeri-trabajo-final
 
 ### 2. Accede al directorio del proyecto recién clonado
 ```bash
-cd unq-ui-luciano-ruggeri-trabajo-final
+cd preguntados
 ```
 ### 3. Instalar dependencias
 Instala las dependencias del proyecto utilizando npm.
@@ -42,6 +42,6 @@ npm install
 Una vez instaladas las dependencias, puedes iniciar la aplicación en modo de desarrollo. Esto abrirá una ventana del navegador con la aplicación en ejecución. Usa el siguiente comando con npm:
 
 ```bash
-npm start
+npm run dev
 ```
-El servidor de desarrollo iniciará en http://localhost:8080. La aplicación se recargará automáticamente si realizas cambios en el código.
+El servidor de desarrollo iniciará en  http://localhost:5173/ . La aplicación se recargará automáticamente si realizas cambios en el código.
